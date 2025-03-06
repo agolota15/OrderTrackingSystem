@@ -1,0 +1,56 @@
+﻿@model IEnumerable<OrderTrackingSystem.Domain.Models.Order>
+@{
+    ViewData["Title"] = "Lista zamówień";
+}
+
+<h1>Lista zamówień</h1>
+
+<form method="get" asp-controller="Order" asp-action="Index" class="form-inline mb-3">
+    <input type="text" name="search" placeholder="Szukaj..." class="form-control mr-2" value="@ViewContext.HttpContext.Request.Query["search"]" />
+    <select name="status" class="form-control mr-2">
+        <option value="">Wszystkie statusy</option>
+        <option value="Nowe">Nowe</option>
+        <option value="W trakcie">W trakcie</option>
+        <option value="Zrealizowane">Zrealizowane</option>
+        <option value="Anulowane">Anulowane</option>
+    </select>
+    <input type="date" name="startDate" class="form-control mr-2" value="@ViewContext.HttpContext.Request.Query["startDate"]" />
+    <input type="date" name="endDate" class="form-control mr-2" value="@ViewContext.HttpContext.Request.Query["endDate"]" />
+    <button type="submit" class="btn btn-primary">Filtruj</button>
+</form>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Dodaj nowe zamówienie</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Numer zamówienia</th>
+            <th>Nazwa klienta</th>
+            <th>Data</th>
+            <th>Status</th>
+            <th>Adres wysyłki</th>
+            <th>Tracking</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderNumber</td>
+                <td>@order.CustomerName</td>
+                <td>@order.OrderDate.ToShortDateString()</td>
+                <td>@order.Status</td>
+                <td>@order.ShippingAddress</td>
+                <td>@order.TrackingNumber</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@order.Id">Szczegóły</a> |
+                    <a asp-action="Edit" asp-route-id="@order.Id">Edytuj</a> |
+                    <a asp-action="Delete" asp-route-id="@order.Id">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

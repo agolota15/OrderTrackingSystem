@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderTrackingSystem.Domain", "OrderTrackingSystem.Domain\OrderTrackingSystem.Domain.csproj", "{EE865ACF-3909-497A-97AE-5279CC6277FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderTrackingSystem.Data", "OrderTrackingSystem.Data\OrderTrackingSystem.Data.csproj", "{F91A7B27-F739-4A90-B40C-ECA86BE185BF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EE865ACF-3909-497A-97AE-5279CC6277FF} = {EE865ACF-3909-497A-97AE-5279CC6277FF}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderTrackingSystem.Services", "OrderTrackingSystem.Services\OrderTrackingSystem.Services.csproj", "{235EA877-BBDC-4FEE-96F8-2A4B5F96CF51}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EE865ACF-3909-497A-97AE-5279CC6277FF} = {EE865ACF-3909-497A-97AE-5279CC6277FF}
+		{F91A7B27-F739-4A90-B40C-ECA86BE185BF} = {F91A7B27-F739-4A90-B40C-ECA86BE185BF}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderTrackingSystem.Web", "OrderTrackingSystem.Web\OrderTrackingSystem.Web.csproj", "{F648FB41-D2FB-4249-9744-D161062BAB10}"
+	ProjectSection(ProjectDependencies) = postProject
+		{235EA877-BBDC-4FEE-96F8-2A4B5F96CF51} = {235EA877-BBDC-4FEE-96F8-2A4B5F96CF51}
+		{EE865ACF-3909-497A-97AE-5279CC6277FF} = {EE865ACF-3909-497A-97AE-5279CC6277FF}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderTrackingSystem.Tests", "OrderTrackingSystem.Tests\OrderTrackingSystem.Tests.csproj", "{ADF22929-0067-482A-B575-F93F16EFEFD8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{235EA877-BBDC-4FEE-96F8-2A4B5F96CF51} = {235EA877-BBDC-4FEE-96F8-2A4B5F96CF51}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE865ACF-3909-497A-97AE-5279CC6277FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE865ACF-3909-497A-97AE-5279CC6277FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE865ACF-3909-497A-97AE-5279CC6277FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE865ACF-3909-497A-97AE-5279CC6277FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F91A7B27-F739-4A90-B40C-ECA86BE185BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F91A7B27-F739-4A90-B40C-ECA86BE185BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F91A7B27-F739-4A90-B40C-ECA86BE185BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F91A7B27-F739-4A90-B40C-ECA86BE185BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{235EA877-BBDC-4FEE-96F8-2A4B5F96CF51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{235EA877-BBDC-4FEE-96F8-2A4B5F96CF51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{235EA877-BBDC-4FEE-96F8-2A4B5F96CF51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{235EA877-BBDC-4FEE-96F8-2A4B5F96CF51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F648FB41-D2FB-4249-9744-D161062BAB10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F648FB41-D2FB-4249-9744-D161062BAB10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F648FB41-D2FB-4249-9744-D161062BAB10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F648FB41-D2FB-4249-9744-D161062BAB10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADF22929-0067-482A-B575-F93F16EFEFD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADF22929-0067-482A-B575-F93F16EFEFD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADF22929-0067-482A-B575-F93F16EFEFD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADF22929-0067-482A-B575-F93F16EFEFD8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {72B0C046-4D62-44C9-BE45-110DA0E8F707}
+	EndGlobalSection
+EndGlobal
