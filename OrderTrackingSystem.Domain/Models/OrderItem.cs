@@ -5,6 +5,10 @@ namespace OrderTrackingSystem.Domain.Models
     public class OrderItem
     {
         public int Id { get; set; }
+<<<<<<< HEAD
+=======
+
+>>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
         public int OrderId { get; set; }
 
         [Required]

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using Microsoft.EntityFrameworkCore;
 using OrderTrackingSystem.Data;
 using OrderTrackingSystem.Domain.Models;
@@ -6,6 +7,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+=======
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using OrderTrackingSystem.Data;
+using OrderTrackingSystem.Domain.Models;
+using OrderTrackingSystem.Services.Interfaces;
+>>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
 
 namespace OrderTrackingSystem.Services
 {
@@ -19,10 +30,16 @@ namespace OrderTrackingSystem.Services
 
         public async Task<List<Order>> GetAllOrdersAsync(string search = null, string status = null, DateTime? startDate = null, DateTime? endDate = null)
         {
+<<<<<<< HEAD
             var query = _context.Orders
                                 .Include(o => o.Histories)
                                 .Include(o => o.OrderItems)
                                 .AsQueryable();
+=======
+            var query = _context.Orders.Include(o => o.Histories)
+                                       .Include(o => o.OrderItems)
+                                       .AsQueryable();
+>>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
 
             if (!string.IsNullOrEmpty(search))
                 query = query.Where(o => o.OrderNumber.Contains(search) || o.CustomerName.Contains(search));
@@ -38,16 +55,28 @@ namespace OrderTrackingSystem.Services
 
         public async Task<Order> GetOrderByIdAsync(int id)
         {
+<<<<<<< HEAD
             return await _context.Orders
                                  .Include(o => o.Histories)
                                  .Include(o => o.OrderItems)
                                  .FirstOrDefaultAsync(o => o.Id == id);
+=======
+            return await _context.Orders.Include(o => o.Histories)
+                                        .Include(o => o.OrderItems)
+                                        .FirstOrDefaultAsync(o => o.Id == id);
+>>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
         }
 
         public async Task CreateOrderAsync(Order order)
         {
             if (string.IsNullOrWhiteSpace(order.TrackingNumber))
+<<<<<<< HEAD
                 order.TrackingNumber = GenerateTrackingNumber();
+=======
+            {
+                order.TrackingNumber = GenerateTrackingNumber();
+            }
+>>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();
         }
@@ -90,7 +119,11 @@ namespace OrderTrackingSystem.Services
 
         private string GenerateTrackingNumber()
         {
+<<<<<<< HEAD
             // Prosty generator numeru przesyłki – można go rozbudować według własnych potrzeb
+=======
+            // Prosty generator oparty na GUID – możesz rozbudować logikę, np. dodać prefix, datę itp.
+>>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
             return "TRK-" + Guid.NewGuid().ToString().Substring(0, 8).ToUpper();
         }
     }

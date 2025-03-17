@@ -4,7 +4,11 @@ using OrderTrackingSystem.Data;
 using OrderTrackingSystem.Services;
 using OrderTrackingSystem.Services.Interfaces;
 using OrderTrackingSystem.Web.Hubs;
+<<<<<<< HEAD
 using OrderTrackingSystem.Web;
+=======
+using OrderTrackingSystem.Web; // dla seederów
+>>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +16,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+<<<<<<< HEAD
 // Konfiguracja Identity z rolami
+=======
+// Konfiguracja Identity
+>>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
@@ -24,13 +32,21 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 
+<<<<<<< HEAD
 // Dodanie MVC, widoków i SignalR
+=======
+// Dodanie kontrolerów, widoków oraz SignalR
+>>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
 builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR();
 
 var app = builder.Build();
 
+<<<<<<< HEAD
 // Seeding ról i administratora
+=======
+// Seeding ról i konta administratora
+>>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;

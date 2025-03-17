@@ -23,13 +23,21 @@ namespace OrderTrackingSystem.Domain.Models
         [Display(Name = "Status zamówienia")]
         public string Status { get; set; }
 
+<<<<<<< HEAD
+=======
+        // Nowe właściwości
+>>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
         [Display(Name = "Adres wysyłki")]
         public string ShippingAddress { get; set; }
 
         [Display(Name = "Numer przesyłki")]
         public string TrackingNumber { get; set; }
 
+<<<<<<< HEAD
         // Lista pozycji zamówienia
+=======
+        // Pozycje zamówienia
+>>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
         public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
         // Historia zmian statusu

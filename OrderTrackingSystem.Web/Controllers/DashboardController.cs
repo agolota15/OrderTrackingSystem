@@ -12,10 +12,19 @@ namespace OrderTrackingSystem.Web.Controllers
             _orderService = orderService;
         }
 
+<<<<<<< HEAD
         // Przykładowy dashboard z wykresem (dane przygotowywane w widoku lub poprzez ViewModel)
         public async Task<IActionResult> Index()
         {
             var orders = await _orderService.GetAllOrdersAsync();
+=======
+        // GET: /Dashboard
+        public async Task<IActionResult> Index()
+        {
+            var orders = await _orderService.GetAllOrdersAsync();
+            // Przygotuj dane do wykresów, np. liczba zamówień wg statusu
+            // Możesz stworzyć widok model DashboardViewModel z danymi raportowymi
+>>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
             return View(orders);
         }
     }
