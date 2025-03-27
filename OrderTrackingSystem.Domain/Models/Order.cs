@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace OrderTrackingSystem.Domain.Models
@@ -9,38 +8,13 @@ namespace OrderTrackingSystem.Domain.Models
         public int Id { get; set; }
 
         [Required]
-        [Display(Name = "Numer zamówienia")]
         public string OrderNumber { get; set; }
 
         [Required]
-        [Display(Name = "Nazwa klienta")]
-        public string CustomerName { get; set; }
+        public string CustomerId { get; set; } // ID użytkownika (IdentityUser.Id)
 
-        [Display(Name = "Data zamówienia")]
         public DateTime OrderDate { get; set; } = DateTime.Now;
 
-        [Required]
-        [Display(Name = "Status zamówienia")]
-        public string Status { get; set; }
-
-<<<<<<< HEAD
-=======
-        // Nowe właściwości
->>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
-        [Display(Name = "Adres wysyłki")]
-        public string ShippingAddress { get; set; }
-
-        [Display(Name = "Numer przesyłki")]
-        public string TrackingNumber { get; set; }
-
-<<<<<<< HEAD
-        // Lista pozycji zamówienia
-=======
-        // Pozycje zamówienia
->>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
-        public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
-
-        // Historia zmian statusu
-        public ICollection<OrderHistory> Histories { get; set; } = new List<OrderHistory>();
+        public string Status { get; set; } = "New"; // np. New, InProgress, Shipped, Completed
     }
 }

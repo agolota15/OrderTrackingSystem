@@ -1,0 +1,24 @@
+﻿@model OrderTrackingSystem.Domain.Models.Voucher
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Voucher Details";
+}
+
+<h2>@ViewData["Title"]</h2>
+<dl class="row">
+    <dt class="col-sm-2">Code</dt>
+    <dd class="col-sm-10">@Model.Code</dd>
+
+    <dt class="col-sm-2">Discount Value</dt>
+    <dd class="col-sm-10">@Model.DiscountValue</dd>
+
+    <dt class="col-sm-2">Expiration</dt>
+    <dd class="col-sm-10">@Model.ExpirationDate.ToString("yyyy-MM-dd")</dd>
+
+    <dt class="col-sm-2">Used</dt>
+    <dd class="col-sm-10">@Model.IsUsed</dd>
+</dl>
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</p>

@@ -1,0 +1,18 @@
+﻿@model OrderTrackingSystem.Domain.Models.ComplaintTemplate
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Template Details";
+}
+
+<h2>@ViewData["Title"]</h2>
+<dl class="row">
+    <dt class="col-sm-2">Title</dt>
+    <dd class="col-sm-10">@Model.TemplateTitle</dd>
+
+    <dt class="col-sm-2">Body</dt>
+    <dd class="col-sm-10">@Model.TemplateBody</dd>
+</dl>
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</p>

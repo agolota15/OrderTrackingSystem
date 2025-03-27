@@ -3,26 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderTrackingSystem.Domain", "OrderTrackingSystem.Domain\OrderTrackingSystem.Domain.csproj", "{EE865ACF-3909-497A-97AE-5279CC6277FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderTrackingSystem.Domain", "OrderTrackingSystem.Domain\OrderTrackingSystem.Domain.csproj", "{EE865ACF-3909-497A-97AE-5279CC6277FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderTrackingSystem.Data", "OrderTrackingSystem.Data\OrderTrackingSystem.Data.csproj", "{F91A7B27-F739-4A90-B40C-ECA86BE185BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderTrackingSystem.Data", "OrderTrackingSystem.Data\OrderTrackingSystem.Data.csproj", "{F91A7B27-F739-4A90-B40C-ECA86BE185BF}"
 	ProjectSection(ProjectDependencies) = postProject
 		{EE865ACF-3909-497A-97AE-5279CC6277FF} = {EE865ACF-3909-497A-97AE-5279CC6277FF}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderTrackingSystem.Services", "OrderTrackingSystem.Services\OrderTrackingSystem.Services.csproj", "{235EA877-BBDC-4FEE-96F8-2A4B5F96CF51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderTrackingSystem.Services", "OrderTrackingSystem.Services\OrderTrackingSystem.Services.csproj", "{235EA877-BBDC-4FEE-96F8-2A4B5F96CF51}"
 	ProjectSection(ProjectDependencies) = postProject
 		{EE865ACF-3909-497A-97AE-5279CC6277FF} = {EE865ACF-3909-497A-97AE-5279CC6277FF}
 		{F91A7B27-F739-4A90-B40C-ECA86BE185BF} = {F91A7B27-F739-4A90-B40C-ECA86BE185BF}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderTrackingSystem.Web", "OrderTrackingSystem.Web\OrderTrackingSystem.Web.csproj", "{F648FB41-D2FB-4249-9744-D161062BAB10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderTrackingSystem.Web", "OrderTrackingSystem.Web\OrderTrackingSystem.Web.csproj", "{F648FB41-D2FB-4249-9744-D161062BAB10}"
 	ProjectSection(ProjectDependencies) = postProject
 		{235EA877-BBDC-4FEE-96F8-2A4B5F96CF51} = {235EA877-BBDC-4FEE-96F8-2A4B5F96CF51}
 		{EE865ACF-3909-497A-97AE-5279CC6277FF} = {EE865ACF-3909-497A-97AE-5279CC6277FF}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderTrackingSystem.Tests", "OrderTrackingSystem.Tests\OrderTrackingSystem.Tests.csproj", "{ADF22929-0067-482A-B575-F93F16EFEFD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderTrackingSystem.Tests", "OrderTrackingSystem.Tests\OrderTrackingSystem.Tests.csproj", "{ADF22929-0067-482A-B575-F93F16EFEFD8}"
 	ProjectSection(ProjectDependencies) = postProject
 		{235EA877-BBDC-4FEE-96F8-2A4B5F96CF51} = {235EA877-BBDC-4FEE-96F8-2A4B5F96CF51}
 	EndProjectSection

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<OrderTrackingSystem.Domain.Models.Voucher>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Available Vouchers";
+}
+
+<h2>@ViewData["Title"]</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Discount</th>
+            <th>Expiration</th>
+            <th>IsUsed</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var v in Model)
+        {
+            <tr>
+                <td>@v.Code</td>
+                <td>@v.DiscountValue</td>
+                <td>@v.ExpirationDate.ToString("yyyy-MM-dd")</td>
+                <td>@(v.IsUsed ? "Yes" : "No")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@v.Id" class="btn btn-info">Details</a>
+                    @if (!v.IsUsed && v.ExpirationDate > DateTime.Now)
+                    {
+                        <form asp-action="ApplyVoucher" method="post" class="d-inline">
+                            <input type="hidden" name="voucherId" value="@v.Id" />
+                            <button type="submit" class="btn btn-primary">Use Voucher</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

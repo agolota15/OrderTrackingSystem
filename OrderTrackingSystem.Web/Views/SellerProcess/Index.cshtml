@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Seller Process";
+}
+
+<h2>@ViewData["Title"]</h2>
+<p>This page allows the seller to run automatic processes (e.g. auto-update shipment statuses).</p>
+
+<form asp-action="RunAutoUpdate" method="post">
+    <button type="submit" class="btn btn-primary">Run Auto Update</button>
+</form>

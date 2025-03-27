@@ -1,0 +1,29 @@
+﻿@model OrderTrackingSystem.Domain.Models.Message
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Create Message";
+}
+
+<h2>@ViewData["Title"]</h2>
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="ToUserId" class="form-label">To (UserId)</label>
+        <input asp-for="ToUserId" class="form-control" />
+        <span asp-validation-for="ToUserId" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Subject" class="form-label"></label>
+        <input asp-for="Subject" class="form-control" />
+        <span asp-validation-for="Subject" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Body" class="form-label"></label>
+        <textarea asp-for="Body" class="form-control"></textarea>
+        <span asp-validation-for="Body" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Send</button>
+    <a asp-action="Outbox" class="btn btn-secondary">Cancel</a>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

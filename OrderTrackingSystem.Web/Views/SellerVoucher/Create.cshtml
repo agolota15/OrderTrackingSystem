@@ -1,0 +1,34 @@
+﻿@model OrderTrackingSystem.Domain.Models.Voucher
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Create Voucher";
+}
+
+<h2>@ViewData["Title"]</h2>
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="Code" class="form-label"></label>
+        <input asp-for="Code" class="form-control" />
+        <span asp-validation-for="Code" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="DiscountValue" class="form-label"></label>
+        <input asp-for="DiscountValue" class="form-control" />
+        <span asp-validation-for="DiscountValue" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="ExpirationDate" class="form-label"></label>
+        <input asp-for="ExpirationDate" class="form-control" type="date" />
+        <span asp-validation-for="ExpirationDate" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="IsUsed" class="form-label"></label>
+        <input asp-for="IsUsed" class="form-check-input" />
+        <span asp-validation-for="IsUsed" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

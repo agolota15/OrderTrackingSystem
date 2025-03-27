@@ -1,56 +1,40 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OrderTrackingSystem.Data;
-using OrderTrackingSystem.Services;
+using OrderTrackingSystem.Domain;
 using OrderTrackingSystem.Services.Interfaces;
-using OrderTrackingSystem.Web.Hubs;
-<<<<<<< HEAD
-using OrderTrackingSystem.Web;
-=======
-using OrderTrackingSystem.Web; // dla seederów
->>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
+using OrderTrackingSystem.Services.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Konfiguracja bazy danych
+// Konfiguracja DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-<<<<<<< HEAD
-// Konfiguracja Identity z rolami
-=======
 // Konfiguracja Identity
->>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>
-{
-    options.SignIn.RequireConfirmedAccount = false;
-})
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
 
-// Rejestracja usług
-builder.Services.AddScoped<IOrderService, OrderService>();
-builder.Services.AddScoped<IEmailService, EmailService>();
+// Rejestracja serwisów
+builder.Services.AddTransient<IOrderService, OrderService>();
+builder.Services.AddTransient<IShipmentService, ShipmentService>();
+builder.Services.AddTransient<IMessageService, MessageService>();
+builder.Services.AddTransient<IComplaintService, ComplaintService>();
+builder.Services.AddTransient<IVoucherService, VoucherService>();
 
-<<<<<<< HEAD
-// Dodanie MVC, widoków i SignalR
-=======
-// Dodanie kontrolerów, widoków oraz SignalR
->>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
+// Dodanie kontrolerów i widoków
 builder.Services.AddControllersWithViews();
-builder.Services.AddSignalR();
 
 var app = builder.Build();
 
-<<<<<<< HEAD
-// Seeding ról i administratora
-=======
-// Seeding ról i konta administratora
->>>>>>> e9e9ea3f3becd2184cf5789cf802855666d746a5
+// Inicjalizacja ról i testowego sprzedawcy
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    await RoleInitializer.SeedRolesAndAdminAsync(services);
+    var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+    await RoleInitializer.InitializeAsync(userManager, roleManager);
 }
 
 if (!app.Environment.IsDevelopment())
@@ -66,9 +50,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Order}/{action=Index}/{id?}");
-
-// Mapowanie SignalR Huba
-app.MapHub<OrderHub>("/orderHub");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

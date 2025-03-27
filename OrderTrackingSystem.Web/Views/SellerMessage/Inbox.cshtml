@@ -1,0 +1,33 @@
+﻿@model IEnumerable<OrderTrackingSystem.Domain.Models.Message>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Seller Inbox";
+}
+
+<h2>@ViewData["Title"]</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>From</th>
+            <th>Subject</th>
+            <th>Sent Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var msg in Model)
+        {
+            <tr>
+                <td>@msg.FromUserId</td>
+                <td>@msg.Subject</td>
+                <td>@msg.SentDate.ToString("yyyy-MM-dd HH:mm")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@msg.Id" class="btn btn-info">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a asp-action="Outbox" class="btn btn-secondary">Go to Outbox</a>
+</p>

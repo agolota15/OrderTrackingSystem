@@ -1,0 +1,24 @@
+﻿@model OrderTrackingSystem.Domain.Models.ComplaintTemplate
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Create Complaint Template";
+}
+
+<h2>@ViewData["Title"]</h2>
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="TemplateTitle" class="form-label"></label>
+        <input asp-for="TemplateTitle" class="form-control" />
+        <span asp-validation-for="TemplateTitle" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="TemplateBody" class="form-label"></label>
+        <textarea asp-for="TemplateBody" class="form-control"></textarea>
+        <span asp-validation-for="TemplateBody" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
