@@ -1,25 +1,23 @@
 ﻿@model OrderTrackingSystem.Domain.Models.Order
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Create Order";
 }
 
 <h2>@ViewData["Title"]</h2>
+
 <form asp-action="Create" method="post">
     <div class="mb-3">
-        <label asp-for="OrderNumber" class="form-label"></label>
+        <label asp-for="OrderNumber" class="form-label">Order Number</label>
         <input asp-for="OrderNumber" class="form-control" />
         <span asp-validation-for="OrderNumber" class="text-danger"></span>
     </div>
-    <div class="mb-3">
-        <label asp-for="Status" class="form-label"></label>
-        <input asp-for="Status" class="form-control" value="New" />
-        <span asp-validation-for="Status" class="text-danger"></span>
-    </div>
-    <!-- OrderDate i CustomerId zostaną ustawione w kontrolerze -->
+
     <button type="submit" class="btn btn-primary">Create</button>
     <a asp-action="Index" class="btn btn-secondary">Cancel</a>
 </form>
+
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
